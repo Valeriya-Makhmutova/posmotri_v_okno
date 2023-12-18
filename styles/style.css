@@ -96,10 +96,11 @@ fieldset {
   display: flex;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 }
 
-.search-form__label:focus {
-  border: 1px solid #fff;
+.search-form__label:hover {
+  cursor: pointer; 
 }
 
 .search-form__label:has(:focus-visible) {
@@ -111,7 +112,7 @@ fieldset {
   appearance: none;
 }
 
-.search-form__label-text:hover {
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
@@ -127,12 +128,12 @@ fieldset {
 
 .search-form__textfield {
   width: 225px;
-  height: 27px;
-  border-top: 1px solid #fff;
+  min-height: 27px;
+  border-top: 1px solid currentColor;
   border-right: transparent;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid currentColor;
   color: #fff;
-  font-family: Fira Sans Condensed;
+  font-family: Fira Sans Condensed, sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
@@ -154,11 +155,10 @@ fieldset {
   justify-content: space-between;
   align-items: baseline;
   min-width: 212px;
-  min-height: 28px;
 }
 
 .search-form__pseudo-checkbox {
-  display: inline-block;
+  display: block;
   width: 20px;
   height: 20px;
   border: 1px solid #fff;
@@ -186,9 +186,13 @@ input[type="checkbox"]:active + span {
 }
 
 .button {
-  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid currentColor;
   color: #fff;
-  font-family: Fira Sans Condensed;
+  font-family: Fira Sans Condensed, sans-serif;
   font-weight: 700;
   font-size: 18px;
   font-style: normal;
@@ -209,21 +213,22 @@ input[type="checkbox"]:active + span {
 }
 
 .button:focus {
+  outline: 0;
+}
+
+.button:focus-visible {
   outline: 1px solid #fff;
   outline-offset: -3px;
 }
 
 .search-form__submit-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   width: 194px;
   height: 34px;
   margin-top: 20px;
 }
 
 .content__details {
+  min-width: 399px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -233,7 +238,7 @@ input[type="checkbox"]:active + span {
 }
 
 .title {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 75px;
   font-style: normal;
@@ -251,11 +256,7 @@ input[type="checkbox"]:active + span {
   display: flex;
   flex-direction: column;
   height: 300px;
-  overflow: hidden;
-}
-
-.content__list:hover {
-  overflow: hidden scroll;
+  overflow: auto;
 }
 
 .content__list::-webkit-scrollbar {
@@ -267,12 +268,6 @@ input[type="checkbox"]:active + span {
   background-color: #223c50;
 }
 
-.content__list-item:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
-}
-
 .content__list-item:not(:last-child) {
   margin-bottom: 30px;
 }
@@ -282,18 +277,35 @@ input[type="checkbox"]:active + span {
   text-decoration: none;
 }
 
+.content__card-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.content__card-link:active {
+  display: block;
+  background-color: #545050;
+}
+
+.content__card-link:focus {
+  outline: 0;
+}
+
+.content__card-link:focus-visible {
+  display: block;
+  outline: 1px solid #fff;
+}
+
 .content__video-card {
   display: flex;
   align-items: flex-start;
   padding: 2px;
 }
 
-.content__video-card:active {
+.content__card-link_current {
+  display: block;
   background-color: #545050;
-}
-
-.content__video-card:focus {
-  border: 1px solid #fff;
 }
 
 .content__video-card-description-container {
@@ -307,7 +319,11 @@ input[type="checkbox"]:active + span {
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 200px;
+  font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 30px;
   font-style: normal;
@@ -316,7 +332,8 @@ input[type="checkbox"]:active + span {
 }
 
 .content__video-card-description {
-  font-family: Fira Sans Condensed;
+  max-width: 200px;
+  font-family: Fira Sans Condensed, sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
@@ -331,10 +348,6 @@ input[type="checkbox"]:active + span {
 }
 
 .more-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   width: 399px;
   height: 34px;
 }
