@@ -100,7 +100,7 @@ fieldset {
 }
 
 .search-form__label:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .search-form__label:has(:focus-visible) {
@@ -228,12 +228,12 @@ input[type="checkbox"]:active + span {
 }
 
 .content__details {
-  min-width: 399px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 21px;
   width: 100%;
+  min-width: 399px;
   height: 100%;
 }
 
@@ -319,16 +319,16 @@ input[type="checkbox"]:active + span {
 }
 
 .content__video-card-title {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   max-width: 200px;
+  overflow: hidden;
   font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 30px;
   font-style: normal;
   line-height: 100%;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content__video-card-description {
